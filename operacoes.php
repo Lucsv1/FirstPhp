@@ -1,6 +1,12 @@
 <?php
 
-$idade = 21;
-$idadeHa5anos = $idade - 5;
+$soma = 2+2;
+$subtracao = 2 - 2;
+$multiplicacao = 2 * 2;
+$divisao = 2/2;
 
-echo $idadeHa5anos;
+$doiAoCubo = 2 ** 3;
+
+$restoDivisao = 10 % 3;
+
+echo $restoDivisao;
