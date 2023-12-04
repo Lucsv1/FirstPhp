@@ -1,36 +1,6 @@
 <?php
 
-function exibeMensagem($msg)
-{
-    echo $msg . PHP_EOL;
-}
-
-function sacar($conta, $valorSacar)
-{
-
-    if ($valorSacar < $conta) {
-        exibeMensagem(" Voce nao pode sacar");
-    } else {
-        $conta["saldo"] -= $valorSacar;
-    }
-
-    return $conta;
-
-}
-
-function depositar($conta, $valorDepositar)
-{
-    $conta["saldo"] += $valorDepositar;
-    return $conta;
-}
-
-function trasnferir($valorTransferir, $saldoOrigem, $saldoDestino)
-{
-    $saldoOrigem -= $valorTransferir;
-    $saldoDestino += $valorTransferir;
-    return [$saldoOrigem, $saldoDestino];
-    
-}
+require_once 'Funcoes.php';
 
 $cpf = "1234567810";
 $cpf2 = "1234567811";
@@ -64,7 +34,7 @@ $listaContas = [
 
 $listaContas[$cpf2] = sacar($listaContas[$cpf2], 300);
 $listaContas[$cpf] = sacar($listaContas[$cpf], 50);
-$listaContas[$cpf3] = depositar($listaContas[$cpf3], 300);
+$listaContas[$cpf3] = depositar($listaContas[$cpf3], -300);
 
 [$novoSaldoOrigem, $novoSaldoDestino] = trasnferir(
     50,
@@ -77,6 +47,8 @@ exibeMensagem("novo saldo da conta origem: $novoSaldoOrigem");
 exibeMensagem("novo saldo da conta destino: $novoSaldoDestino");
 
 
-foreach ($listaContas as $conta) {
-    exibeMensagem($conta["saldo"]);
-}
+// echo "<ul>";
+// foreach ($listaContas as $conta) {
+//     exibeConta($conta);
+// }
+// echo "</ul>";
